@@ -1,0 +1,92 @@
+---
+import { routes } from "@/data/routes";
+import Link from "@/components/Link.astro";
+import Service from "@/components/Service.astro";
+import Layout from "@/layouts/Layout.astro";
+import { Bolt, Check, Hammer, Wrench } from "lucide-astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+const services = [
+  {
+    icon: Bolt,
+    title: "Elektroinstalace",
+    items: [
+      "kompletní elektroinstalace bytů, chat, rodinných domů, kuchyní, koupelen, školských zařízení, průmyslových a administrativních objektů",
+      "rekonstrukce, úpravy a opravy elektroinstalací",
+      "veškeré úpravy stávajících elektrorozvodů",
+      "doplnění elektroinstalace pro rekonstruovanou kuchyň a koupelnu",
+      "montáž přepětových ochran a zásuvek (ochrana drahých spotřebičů PC, TV apod.)",
+    ],
+  },
+  {
+    icon: Wrench,
+    title: "Rozšíření stávajících elektrických okruhů",
+    items: [
+      "eliminace přetížení jističů stávajících obvodů",
+      "rozvedení nových kabelových okruhů",
+      "osazení nových jističů a zásuvek",
+      "výměna nebo doplnění prvků stávajícího rozvaděče",
+      "samostatný okruh pro pračku, myčku, sušičku a boiler atd.",
+    ],
+  },
+  {
+    icon: Hammer,
+    title: "Opravy a údržba",
+    items: [
+      "výměna zásuvek, vypínačů, světel, spínačů, jističů a hlavního jističe",
+      "oprava nefunkčních elektro rozvodů",
+      "oprava pohybových čidel",
+    ],
+  },
+  {
+    icon: Check,
+    title: "Revize",
+    items: [
+      "provedem revizi provedených elektroninstalací včetně revizní zprávy",
+    ],
+  },
+];
+---
+
+<Layout
+  meta={{
+    title: "Elektrikářské služby",
+    description:
+      "Naše elektrikářské služby zahrnují opravy, instalace a údržbu elektrických systémů. Zajistíme vaši bezpečnost a spokojenost.",
+  }}
+  class="gap-y-16 md:gap-y-24"
+>
+  <section>
+    <SectionHeading
+      align="center"
+      title="Naše služby"
+      class="max-w-md"
+      descriptionClass="text-sm"
+    >
+      Nic není nemožné, v případě, že jste nenalezli to co hledáte, neváhejte
+      nás
+      <Link href={routes.contact.path} class="text-primary">Službyovat</Link> s individuálním
+      požadavkem.
+    </SectionHeading>
+    <ul class="grid gap-10 md:grid-cols-2">
+      {
+        services.map((service) => (
+          <li>
+            <Service {...service} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section>
+    <SectionHeading
+      align="center"
+      title="Ceník"
+      class="max-w-md"
+      descriptionClass="text-sm"
+    >
+      Cena služeb je vždy stanovena individuálně na základě dohody a rozsahu
+      práce.
+    </SectionHeading>
+  </section>
+</Layout>

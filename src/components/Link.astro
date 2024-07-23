@@ -1,0 +1,20 @@
+---
+import clsx from "clsx";
+
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  underline?: boolean;
+}
+
+const { class: classes, underline = true, ...props } = Astro.props;
+---
+
+<a
+  {...props}
+  class={clsx(
+    "focus-ring focus-visible:rounded",
+    { "hover:underline": underline },
+    classes,
+  )}
+>
+  <slot /></a
+>

@@ -1,0 +1,56 @@
+---
+import clsx from "clsx";
+
+const sizeClasses = {
+  sm: "px-3 py-1.5 text-sm rounded-md",
+  default: "py-2 px-6 text-sm rounded-md",
+  md: "py-3 px-8 text-base rounded-lg",
+  lg: "py-3.5 px-12 text-base rounded-lg",
+};
+
+const variantClasses = {
+  primary:
+    "bg-primary text-white transform transition duration-200 filter disabled:bg-primary-light-300 disabled:cursor-not-allowed disabled:brightness-100 hover:brightness-110",
+  secondary:
+    "bg-gray-200 text-black transform transition duration-200 filter disabled:text-primary-300 disabled:cursor-not-allowed disabled:bg-primary-700 disabled:brightness-100 hover:brightness-110",
+  transparent: "bg-transparent",
+};
+
+type Props = {
+  size?: keyof typeof sizeClasses;
+  variant?: keyof typeof variantClasses;
+  loading?: boolean;
+} & (astroHTML.JSX.ButtonHTMLAttributes | astroHTML.JSX.AnchorHTMLAttributes);
+
+const {
+  size = "default",
+  variant = "primary",
+  loading,
+  class: classes,
+  ...props
+} = Astro.props;
+
+const sharedClass = clsx(
+  "flex items-center items-center justify-center font-medium focus-ring",
+  sizeClasses[size],
+  variantClasses[variant],
+  classes,
+);
+---
+
+{
+  "href" in props ? (
+    <a {...props} class={sharedClass}>
+      <slot />
+    </a>
+  ) : (
+    // Astro doesn't infer the type of the props object, so we need to cast it to the correct type
+    <button
+      {...(props as astroHTML.JSX.ButtonHTMLAttributes)}
+      disabled={("disabled" in props && props.disabled) || loading}
+      class={sharedClass}
+    >
+      <slot />
+    </button>
+  )
+}

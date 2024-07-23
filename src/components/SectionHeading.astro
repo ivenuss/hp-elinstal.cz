@@ -1,0 +1,32 @@
+---
+import clsx from "clsx";
+
+const aligns = {
+  left: "text-left",
+  center: "text-center mx-auto",
+  right: "text-right",
+};
+
+interface Props {
+  titleAs?: keyof astroHTML.JSX.DefinedIntrinsicElements;
+  title: string;
+  align?: keyof typeof aligns;
+  class?: string;
+  descriptionClass?: string;
+}
+
+const {
+  title,
+  titleAs: TitleComponent = "h2",
+  align = "left",
+  class: classes,
+  descriptionClass,
+} = Astro.props;
+---
+
+<div class={clsx("mb-14", aligns[align], classes)}>
+  <TitleComponent class="mb-1.5 text-xl font-semibold md:text-2xl">
+    {title}
+  </TitleComponent>
+  <p class={clsx("text-sm leading-relaxed", descriptionClass)}><slot /></p>
+</div>

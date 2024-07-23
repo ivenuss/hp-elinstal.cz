@@ -1,0 +1,17 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+
+const { pathname } = Astro.url;
+const subpath = pathname.match(/[^\/]+/g);
+const isActive = href === pathname || href === "/" + subpath?.[0];
+---
+
+<Button size="sm" href={href} variant={isActive ? "primary" : "transparent"}>
+  <slot />
+</Button>

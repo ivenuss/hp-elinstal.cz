@@ -1,0 +1,22 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/Hero.astro";
+import BasicServices from "@/components/BasicServices.astro";
+import ContactUsBanner from "@/components/ContactUsBanner.astro";
+import WhyChooseUs from "@/components/WhyChooseUs.astro";
+---
+
+<Layout
+  meta={{
+    title: "Elektrikářské služby",
+    description:
+      "Nabízíme profesionální elektrikářské služby pro domácnosti i firmy.",
+  }}
+>
+  <div class="flex flex-col gap-y-16 md:gap-y-28">
+    <Hero />
+    <BasicServices />
+    <WhyChooseUs />
+    <ContactUsBanner />
+  </div>
+</Layout>

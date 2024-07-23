@@ -1,0 +1,15 @@
+export const config = {
+  domain: "hp-elinstal.cz",
+  siteName: "HP-Elinstal.cz",
+  timezone: "Europe/Prague",
+  acronym: "HP",
+  fullName: "Petr Habrcetl",
+  phoneNumber: "+420 728 225 017",
+  email: "phabrcetl@centrum.cz",
+  city: "Radějov 252",
+  district: "Hodonín",
+  zipCode: "696 67",
+  cid: "08652210",
+  googleMapsLink: "https://maps.app.goo.gl/qSXW52SRspJDfxPg7",
+  googleMapsApiKey: import.meta.env.PUBLIC_GOOGLE_KEY,
+};

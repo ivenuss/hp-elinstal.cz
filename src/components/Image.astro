@@ -1,0 +1,12 @@
+---
+import { Image as AstroImage, type LocalImageProps } from "astro:assets";
+
+interface Props
+  extends Pick<LocalImageProps, "alt" | "class" | "loading" | "decoding"> {
+  src: ImageMetadata;
+}
+
+const props = Astro.props;
+---
+
+<AstroImage {...props} inferSize densities={[0.5, 1.5, 2]} />
