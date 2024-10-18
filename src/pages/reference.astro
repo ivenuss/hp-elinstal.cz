@@ -1,0 +1,15 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Masonry from "@/components/Masonry.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+const description =
+  "Ukázka našich prací, které jsme dělali nebo jsme se podíleli na jejich realizaci.";
+---
+
+<Layout meta={{ title: "Reference", description }}>
+  <SectionHeading titleAs="h1" title="Naše realizace" class="mb-8">
+    {description}
+  </SectionHeading>
+  <Masonry />
+</Layout>

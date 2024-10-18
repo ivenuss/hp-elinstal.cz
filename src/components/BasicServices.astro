@@ -1,0 +1,52 @@
+---
+import { House, Wrench, Zap } from "lucide-astro";
+import SectionHeading from "./SectionHeading.astro";
+
+const basicServices = [
+  {
+    icon: Zap,
+    title: "Elektrikářské práce",
+    description:
+      "Dílčí elektrikářské práce od osazení zásuvky až po doplnění rozvaděče.",
+  },
+  {
+    icon: Wrench,
+    title: "Opravy a údržba",
+    description:
+      "Výměna zásuvek, vypínačů, světel, spínačů, jističů a hlavního jističe.",
+  },
+  {
+    icon: House,
+    title: "Kompletní elektroinstalace",
+    description:
+      "Elektroinstalace pro byty, rodinné domy, kuchyně, koupelny a větší objekty.",
+  },
+];
+---
+
+<section>
+  <SectionHeading
+    align="center"
+    titleAs="h1"
+    title="Naše služby"
+    class="max-w-md"
+  >
+    Provádíme elektroinstalační práce v <strong>Hodoníně</strong>, <strong
+      >Kyjově</strong
+    >,
+    <strong>Strážnici</strong>, <strong>Veselí nad Moravou</strong> a okolí.
+  </SectionHeading>
+  <ul class="flex flex-col gap-4 md:flex-row">
+    {
+      basicServices.map(({ icon: Icon, title, description }) => (
+        <li class="relative rounded-lg bg-gray-100 p-4">
+          <Icon class="mb-1 size-6 text-primary md:size-7" />
+          <h3 class="mb-0.5 text-base font-medium md:mb-1 md:text-lg">
+            {title}
+          </h3>
+          <p class="text-sm leading-relaxed">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>

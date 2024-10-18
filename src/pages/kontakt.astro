@@ -1,0 +1,18 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Map from "@/components/Map.astro";
+import ContactDetails from "@/components/ContactDetails.astro";
+---
+
+<Layout
+  meta={{
+    title: "Kontakt",
+    description:
+      "Máte dotazy nebo potřebujete pomoc? Kontaktujte nás a získejte rychlou odpověď.",
+  }}
+>
+  <div class="flex flex-col-reverse gap-4 md:flex-row">
+    <Map />
+    <ContactDetails />
+  </div>
+</Layout>

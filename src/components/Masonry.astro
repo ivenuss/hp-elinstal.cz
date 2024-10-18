@@ -1,0 +1,29 @@
+---
+import Image from "@/components/Image.astro";
+
+const getImages: Record<string, { default: any }> = import.meta.glob(
+  "@/images/work/*",
+  { eager: true },
+);
+
+const images = Object.values(getImages).map(
+  (image) => image.default as ImageMetadata,
+);
+---
+
+<section
+  class="flex flex-wrap [margin-block:_theme(size.2)] [margin-inline:_calc(-1_*_theme(size.1))]"
+>
+  {
+    images.map((image, index) => (
+      <div class="max-w-[50%] flex-grow p-1">
+        <Image
+          alt=""
+          src={image}
+          class="h-48 w-full rounded-md object-cover"
+          {...(index <= 16 ? { loading: "eager", decoding: "auto" } : {})}
+        />
+      </div>
+    ))
+  }
+</section>

@@ -1,0 +1,33 @@
+---
+import Link from "./Link.astro";
+import NavLink from "./NavLink.astro";
+import NavMobile from "./NavMobile.svelte";
+import { config } from "@/data/config";
+import { constants } from "@/data/constants";
+import { routes } from "@/data/routes";
+---
+
+<nav
+  class="mx-auto flex w-full max-w-screen-lg items-center justify-between px-4 py-3.5"
+>
+  <Link
+    href={routes.home.path}
+    underline={false}
+    class="flex items-center gap-x-2"
+  >
+    <img draggable="false" src="/favicon.svg" alt="Logo" class="size-7" />
+    <h2 class="block text-lg font-semibold md:text-xl">
+      {config.siteName}
+    </h2>
+  </Link>
+  <ul class="hidden items-center gap-x-1.5 md:flex">
+    {
+      constants.navLinks.map((item) => (
+        <li>
+          <NavLink href={item.href}>{item.name}</NavLink>
+        </li>
+      ))
+    }
+  </ul>
+  <NavMobile client:only="svelte" />
+</nav>

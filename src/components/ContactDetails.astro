@@ -1,0 +1,65 @@
+---
+import clsx from "clsx";
+import { config } from "@/data/config";
+import { constants } from "@/data/constants";
+import Button from "./Button.astro";
+import { Mail } from "lucide-astro";
+import OpeningHoursState from "./OpeningHoursState.svelte";
+import Link from "./Link.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: classes } = Astro.props;
+---
+
+<div class={clsx("block rounded-lg bg-gray-100 p-4 min-w-72", classes)}>
+  <ul class="flex h-full flex-col justify-between gap-y-4">
+    <li>
+      <ul class="flex flex-col gap-y-0.5">
+        <li>
+          <h1 class="text-lg font-medium">{config.fullName}</h1>
+        </li>
+        <li class="text-sm">IČO: {config.cid}</li>
+      </ul>
+    </li>
+    <li class="flex flex-col gap-y-1">
+      <span class="flex items-center justify-between gap-x-2">
+        <h3 class="font-medium">Otevírací doba</h3>
+        <OpeningHoursState client:load />
+      </span>
+
+      <ul class="flex flex-col gap-y-0.5">
+        {
+          constants.openingHours.map(({ days, hours }) => (
+            <li class="flex items-center justify-between text-sm">
+              <span>{days}:</span> <span>{hours}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </li>
+    <li class="flex flex-col gap-y-1">
+      <h3 class="font-medium">Kontaktní údaje</h3>
+      <ul class="flex flex-col items-start gap-y-0.5">
+        {
+          constants.contactLinks.map((link) => (
+            <li>
+              <Link href={link.href} class="flex items-center gap-x-1.5">
+                <link.icon class="size-4" />
+                <span class="text-sm">{link.name}</span>
+              </Link>
+            </li>
+          ))
+        }
+      </ul>
+    </li>
+    <li class="">
+      <Button href={`mailto:${config.email}`} class="w-full gap-x-2">
+        <Mail class="size-5" />
+        <span>Poslat email</span>
+      </Button>
+    </li>
+  </ul>
+</div>

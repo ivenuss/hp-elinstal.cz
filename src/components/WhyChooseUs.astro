@@ -1,0 +1,74 @@
+---
+import {
+  CheckCircle2,
+  Clock,
+  HandCoins,
+  Shield,
+  Smile,
+  Timer,
+} from "lucide-astro";
+import SectionHeading from "./SectionHeading.astro";
+
+const reasons = [
+  {
+    icon: Shield,
+    title: "Ochrana a bezpečnost",
+    description:
+      "Náš tým je pojištěný, což zajišťuje vaši bezpečnost a ochranu při všech našich službách.",
+  },
+  {
+    icon: Clock,
+    title: "Zkušenosti",
+    description:
+      "S více než 20 lety zkušeností v oblasti elektroinstalací jsme jedni z nejzkušenějších odborníků na trhu.",
+  },
+  {
+    icon: CheckCircle2,
+    title: "Kvalitní práce",
+    description:
+      "Naše práce je charakterizována vysokou kvalitou a pozorností k detailům, aby vám zajistila dlouhodobou spokojenost.",
+  },
+  {
+    icon: HandCoins,
+    title: "Konkureční ceny",
+    description:
+      "Nabízíme špičkové služby za ceny, které jsou konkureční a férové, aby vám bylo možné využít našich služeb bez zbytečných nákladů.",
+  },
+  {
+    icon: Smile,
+    title: "Spokojenost zákazníků",
+    description:
+      "Vaše spokojenost je pro nás klíčová. Pracujeme na tom, aby vaše očekávání byla vždy překonána a abyste se u nás cítili dobře.",
+  },
+  {
+    icon: Timer,
+    title: "Rychlá služba",
+    description:
+      "Respektujeme váš čas a dorazíme vždy včas, aby vaše elektroinstalace byly řešeny rychle a efektivně.",
+  },
+];
+---
+
+<section>
+  <SectionHeading align="center" title="Proč si vybrat nás" class="max-w-md">
+    Nabízíme kombinaci zkušeností, kvality a konkurečních cen, aby vaše
+    elektroinstalační potřeby byly vždy splněny
+  </SectionHeading>
+  <ul
+    class="grid grid-cols-1 gap-x-5 gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3"
+  >
+    {
+      reasons.map(({ title, description, icon: Icon }) => (
+        <li class="flex gap-x-3">
+          <div class="grid size-7 flex-none place-items-center rounded-full bg-primary text-white md:size-9">
+            <Icon class="size-5 md:size-6" />
+          </div>
+          <div class="flex flex-col">
+            <strong class="mb-0.5">{title}</strong>
+            <p class="text-sm leading-normal">{description}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
