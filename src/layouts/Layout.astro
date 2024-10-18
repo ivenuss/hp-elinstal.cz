@@ -20,7 +20,7 @@ const { class: classes, meta } = Astro.props;
 
 const [cspHeader, cspValue] = [
   "Content-Security-Policy",
-  "default-src 'self'; frame-src 'self' www.google.com; script-src 'self' analytics.jakubh.com 'unsafe-inline'; style-src 'self' 'unsafe-inline';",
+  "default-src 'self'; frame-src 'self' www.google.com; script-src 'self' analytics.jakubh.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' analytics.jakubh.com;",
 ];
 
 if (!import.meta.env.DEV) {
