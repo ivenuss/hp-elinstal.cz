@@ -9,7 +9,7 @@
   let isOpen = false;
 </script>
 
-<div use:focusTrap={isOpen} class="md:hidden">
+<div use:focusTrap={isOpen} class="ml-auto md:hidden">
   {#if isOpen}
     <!-- Placeholder to prevent layout shifts -->
     <span aria-hidden="true" class="block size-9" />
