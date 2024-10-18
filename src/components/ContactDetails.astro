@@ -26,7 +26,7 @@ const { class: classes } = Astro.props;
     </li>
     <li class="flex flex-col gap-y-1">
       <span class="flex items-center justify-between gap-x-2">
-        <h3 class="font-medium">Otevírací doba</h3>
+        <h2 class="font-medium">Otevírací doba</h2>
         <OpeningHoursState client:load />
       </span>
 
@@ -41,7 +41,7 @@ const { class: classes } = Astro.props;
       </ul>
     </li>
     <li class="flex flex-col gap-y-1">
-      <h3 class="font-medium">Kontaktní údaje</h3>
+      <h2 class="font-medium">Kontaktní údaje</h2>
       <ul class="flex flex-col items-start gap-y-0.5">
         {
           constants.contactLinks.map((link) => (

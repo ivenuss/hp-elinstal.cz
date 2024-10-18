@@ -2,7 +2,10 @@
 import { Image as AstroImage, type LocalImageProps } from "astro:assets";
 
 interface Props
-  extends Pick<LocalImageProps, "alt" | "class" | "loading" | "decoding"> {
+  extends Pick<
+    LocalImageProps,
+    "alt" | "class" | "loading" | "decoding" | "fetchpriority"
+  > {
   src: ImageMetadata;
 }
 

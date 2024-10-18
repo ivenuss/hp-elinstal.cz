@@ -18,12 +18,14 @@ interface Props {
 
 const { class: classes, meta } = Astro.props;
 
+const [cspHeader, cspValue] = [
+  "Content-Security-Policy",
+  "default-src 'self'; frame-src 'self' www.google.com; script-src 'self' analytics.jakubh.com;",
+];
+
 if (!import.meta.env.DEV) {
   Astro.response.headers.set("Cache-Control", "public, max-age=3600");
-  Astro.response.headers.set(
-    "Content-Security-Policy",
-    "default-src 'self'; frame-src 'self' www.google.com; script-src 'self' analytics.jakubh.com;",
-  );
+  Astro.response.headers.set(cspHeader, cspValue);
 }
 ---
 
@@ -34,12 +36,15 @@ if (!import.meta.env.DEV) {
     <Meta {...meta} />
     {
       !import.meta.env.DEV && (
-        // Analytics script
-        <script
-          defer
-          data-domain="hp-elinstal.cz"
-          src="https://analytics.jakubh.com/js/script.js"
-        />
+        <Fragment>
+          // Analytics script
+          <script
+            defer
+            data-domain="hp-elinstal.cz"
+            src="https://analytics.jakubh.com/js/script.js"
+          />
+          <meta http-equiv={cspHeader} content={cspValue} />
+        </Fragment>
       )
     }
   </head>

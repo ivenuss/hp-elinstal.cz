@@ -7,6 +7,8 @@ import headerImage from "@/images/header.jpg";
 <header class="relative h-44 overflow-hidden rounded-xl md:h-64">
   <Image
     src={headerImage}
+    loading="eager"
+    fetchpriority="high"
     alt="Hlavní fotografie"
     class="absolute bottom-0 left-0 right-0 top-0 h-full object-cover"
   />

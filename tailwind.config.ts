@@ -10,7 +10,7 @@ export default {
         sans: ["Poppins", ...fontFamily.sans],
       },
       colors: {
-        primary: amber["600"],
+        primary: amber["700"],
         ring: amber["600"],
         background: gray["50"],
       },
