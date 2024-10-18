@@ -20,7 +20,7 @@ const { class: classes, meta } = Astro.props;
 
 const [cspHeader, cspValue] = [
   "Content-Security-Policy",
-  "default-src 'self'; frame-src 'self' www.google.com; script-src 'self' analytics.jakubh.com;",
+  "default-src 'self'; frame-src 'self' www.google.com; script-src 'self' analytics.jakubh.com 'unsafe-inline'; style-src 'self' 'unsafe-inline';",
 ];
 
 if (!import.meta.env.DEV) {
@@ -38,6 +38,7 @@ if (!import.meta.env.DEV) {
       !import.meta.env.DEV && (
         <Fragment>
           <script
+            is:inline
             defer
             data-domain="hp-elinstal.cz"
             src="https://analytics.jakubh.com/js/script.js"
