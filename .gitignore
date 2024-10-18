@@ -36,3 +36,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Sitemap
+**/public/sitemap*.xml
+**/public/robots.txt
+**/public/fallback-*
+.vercel
