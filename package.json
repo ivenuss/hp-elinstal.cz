@@ -17,7 +17,7 @@
     "@astrojs/svelte": "^5.7.2",
     "@astrojs/tailwind": "^5.1.2",
     "@fontsource/poppins": "^5.1.0",
-    "astro": "^4.16.7",
+    "astro": "^4.16.8",
     "clsx": "^2.1.1",
     "lucide-astro": "^0.453.0",
     "lucide-svelte": "^0.453.0",
