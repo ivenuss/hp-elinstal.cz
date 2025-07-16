@@ -35,7 +35,7 @@
   class={clsx(
     "flex items-center gap-x-1.5",
     isOpenNow ? "text-green-500" : "text-red-500",
-    { "focus-ring focus-visible:rounded-sm hover:underline": href },
+    { "focus-ring focus-visible:rounded-xs hover:underline": href },
   )}
 >
   <span class="relative flex size-2.5">

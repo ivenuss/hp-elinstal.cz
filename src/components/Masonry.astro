@@ -12,11 +12,11 @@ const images = Object.values(getImages).map(
 ---
 
 <section
-  class="flex flex-wrap [margin-block:_theme(size.2)] [margin-inline:_calc(-1_*_theme(size.1))]"
+  class="flex flex-wrap [margin-block:theme(size.2)] [margin-inline:calc(-1*theme(size.1))]"
 >
   {
     images.map((image, index) => (
-      <div class="max-w-[50%] flex-grow p-1">
+      <div class="max-w-[50%] grow p-1">
         <Image
           alt=""
           src={image}

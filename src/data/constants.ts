@@ -39,5 +39,5 @@ export const constants = {
     5: [8, 16],
     6: null,
     0: null,
-  } as Record<number, [number, number] | null>,
+  } satisfies Record<number, [number, number] | null>,
 };

@@ -11,7 +11,7 @@ const footerSections: { title: string; items: LinkType[] }[] = [
 ---
 
 <footer class="mt-20 min-h-72 w-full bg-gray-800 pt-14 text-white">
-  <div class="text-primary-light-100 mx-auto max-w-screen-lg px-4">
+  <div class="text-primary-light-100 mx-auto max-w-(--breakpoint-lg) px-4">
     <ul class="flex justify-center gap-5 md:mx-40 md:gap-12">
       <li class="mb-2 hidden flex-1 md:flex">
         <strong class="text-2xl font-semibold md:text-3xl"
@@ -20,7 +20,7 @@ const footerSections: { title: string; items: LinkType[] }[] = [
       </li>
       {
         footerSections.map(({ title, items }) => (
-          <li class="flex flex-[2] flex-col gap-y-2.5 text-sm md:text-base">
+          <li class="flex flex-2 flex-col gap-y-2.5 text-sm md:text-base">
             <strong class="block font-medium text-gray-400">{title}</strong>
             <ul class="flex flex-col items-start gap-y-2">
               {items.map((item) => {
@@ -30,7 +30,7 @@ const footerSections: { title: string; items: LinkType[] }[] = [
                   <li>
                     <Link
                       href={item.href}
-                      class="flex items-center gap-x-2.5 text-sm focus-visible:!ring-offset-gray-800"
+                      class="flex items-center gap-x-2.5 text-sm focus-visible:ring-offset-gray-800!"
                     >
                       {Icon && <Icon class="size-5 flex-none text-white/60" />}
                       {item.name}
