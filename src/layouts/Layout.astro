@@ -4,12 +4,12 @@ import "@fontsource/poppins/500.css"; // Medium
 import "@fontsource/poppins/600.css"; // Semi-Bold
 import "@/styles/app.css";
 import type { MetaProps } from "@/types";
-import { ViewTransitions } from "astro:transitions";
 import clsx from "clsx";
 import Meta from "@/components/Meta.astro";
 import TopNav from "@/components/TopNav.astro";
 import Nav from "@/components/Nav.astro";
 import Footer from "@/components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   class?: string;
@@ -32,21 +32,9 @@ if (!import.meta.env.DEV) {
 <!doctype html>
 <html lang="cs-CZ" transition:animate="none">
   <head>
-    <ViewTransitions />
+    <ClientRouter />
     <Meta {...meta} />
-    {
-      !import.meta.env.DEV && (
-        <Fragment>
-          <script
-            is:inline
-            defer
-            data-domain="hp-elinstal.cz"
-            src="https://analytics.jakubh.com/js/script.js"
-          />
-          <meta http-equiv={cspHeader} content={cspValue} />
-        </Fragment>
-      )
-    }
+    {!import.meta.env.DEV && <meta http-equiv={cspHeader} content={cspValue} />}
   </head>
   <body transition:animate="fade" class="bg-background font-sans">
     <div class="flex min-h-screen flex-col">
@@ -54,7 +42,7 @@ if (!import.meta.env.DEV) {
       <Nav />
       <main
         class={clsx(
-          "flex flex-col mb-auto mx-auto w-full max-w-screen-lg mt-6 px-4",
+          "flex flex-col mb-auto mx-auto w-full max-w-(--breakpoint-lg) mt-6 px-4",
           classes,
         )}
       >

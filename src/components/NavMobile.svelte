@@ -12,14 +12,14 @@
 <div use:focusTrap={isOpen} class="ml-auto md:hidden">
   {#if isOpen}
     <!-- Placeholder to prevent layout shifts -->
-    <span aria-hidden="true" class="block size-9" />
+    <span aria-hidden="true" class="block size-9"></span>
   {/if}
   <button
     aria-label="{isOpen ? 'Otevřít' : 'Zavřít'} menu"
     class={clsx(
       "grid place-items-center size-9 rounded-md transition-colors z-20 focus-ring",
       isOpen
-        ? "!ring-offset-0 fixed top-3.5 right-4 bg-white"
+        ? "ring-offset-0! fixed top-3.5 right-4 bg-white"
         : "bg-gray-200/80",
     )}
     on:click={() => {
@@ -55,6 +55,6 @@
     <div
       transition:fade={{ duration: 150 }}
       class="fixed top-0 bottom-0 left-0 right-0 bg-black/70 z-10"
-    />
+    ></div>
   {/if}
 </div>

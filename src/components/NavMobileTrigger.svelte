@@ -11,7 +11,7 @@
   aria-label="{isOpen ? 'Otevřít' : 'Zavřít'} menu"
   class={clsx(
     "grid place-items-center size-9 rounded-md bg-gray-100 focus-ring",
-    { "!ring-offset-0": isOpen },
+    { "ring-offset-0!": isOpen },
     classes,
   )}
   on:click={() => {

@@ -11,7 +11,7 @@ const { class: classes, underline = true, ...props } = Astro.props;
 <a
   {...props}
   class={clsx(
-    "focus-ring focus-visible:rounded",
+    "focus-ring focus-visible:rounded-sm",
     { "hover:underline": underline },
     classes,
   )}

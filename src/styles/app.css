@@ -1,11 +1,22 @@
-@tailwind base;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--color-amber-700);
+  --color-ring: var(--color-amber-600);
+  --color-background: var(--color-gray-50);
+
+  --font-sans:
+    "Poppins", system-ui, BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
 
 @layer base {
   strong {
     @apply font-medium;
   }
+}
 
-  .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
-  }
+@utility focus-ring {
+  @apply focus-visible:ring-ring focus-visible:ring-offset-background focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden;
 }
