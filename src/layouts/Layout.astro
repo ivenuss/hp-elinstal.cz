@@ -9,6 +9,7 @@ import Meta from "@/components/Meta.astro";
 import TopNav from "@/components/TopNav.astro";
 import Nav from "@/components/Nav.astro";
 import Footer from "@/components/Footer.astro";
+import Analytics from "@vercel/analytics/astro";
 import { ClientRouter } from "astro:transitions";
 
 interface Props {
@@ -29,10 +30,10 @@ if (!import.meta.env.DEV) {
 }
 ---
 
-<!doctype html>
 <html lang="cs-CZ" transition:animate="none">
   <head>
     <ClientRouter />
+    <Analytics />
     <Meta {...meta} />
     {!import.meta.env.DEV && <meta http-equiv={cspHeader} content={cspValue} />}
   </head>
